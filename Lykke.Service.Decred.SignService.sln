@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Instrastructure", "1. Instrastructure", "{CC2067D7-1971-47BB-B491-5649EA3C18B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Repositories", "2. Repositories", "{BF745453-B940-470E-81BC-43FB67703D4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{6CA74DE0-A357-4934-9D8B-FEA3F0A2D690}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Client", "3. Client", "{C9A2CFDE-EA32-4946-B679-7CE6EFA816B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Tests", "4. Tests", "{8F9036B1-5106-4C69-B2D2-B78EE52687A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lykke.Service.Decred.SignService.Core", "src\Lykke.Service.Decred.SignService.Core\Lykke.Service.Decred.SignService.Core.csproj", "{E1F9A5B8-D029-4964-A01D-7220F6062883}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lykke.Service.Decred.SignService.Services", "src\Lykke.Service.Decred.SignService.Services\Lykke.Service.Decred.SignService.Services.csproj", "{E19801D5-47D8-4C07-9A25-620352C0469E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lykke.Service.Decred.SignService", "src\Lykke.Service.Decred.SignService\Lykke.Service.Decred.SignService.csproj", "{AB89F606-E993-4CAA-B327-B9E6288CAC3A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lykke.Service.Decred.SignService.Services.Tests", "tests\Lykke.Service.Decred.SignService.Services.Tests\Lykke.Service.Decred.SignService.Services.Tests.csproj", "{080F7CF4-6527-426F-8AF6-3A0CB4D22793}"
+EndProject
+
