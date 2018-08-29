@@ -21,6 +21,7 @@ namespace Lykke.Service.Decred.SignService
             {
                 var host = new WebHostBuilder()
                     .UseKestrel()
+                    .UseUrls("http://*:5000")
                     .UseContentRoot(Directory.GetCurrentDirectory())
                     .ConfigureLogging((hostingContext, logging) =>
                     {
