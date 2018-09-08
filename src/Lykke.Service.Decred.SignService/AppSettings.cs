@@ -1,6 +1,8 @@
-﻿namespace Lykke.Service.Decred.SignService
+﻿using Lykke.Sdk.Settings;
+
+namespace Lykke.Service.Decred.SignService
 {
-    public class AppSettings
+    public class AppSettings : BaseAppSettings
     {
         public string NetworkType { get; set; }
     }

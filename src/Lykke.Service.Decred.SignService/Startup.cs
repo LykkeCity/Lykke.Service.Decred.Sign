@@ -1,4 +1,6 @@
 ﻿using System;
+using JetBrains.Annotations;
+using Lykke.Sdk;
 using Lykke.Service.Decred.SignService.Core.Services;
 using Lykke.Service.Decred.SignService.Services;
 using Lykke.SettingsReader;
@@ -11,52 +13,33 @@ using NDecred.Common.Wallet;
 
 namespace Lykke.Service.Decred.SignService
 {
+    [UsedImplicitly]
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
-        }
-
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-
-            var reloadableSettings = Configuration.LoadSettings<AppSettings>();
-            
-            services.AddTransient(p =>
+            var service = services.BuildServiceProvider<AppSettings>(options =>
             {
-                var networkType = reloadableSettings.CurrentValue.NetworkType.Trim().ToLower();
-                var name = 
-                    networkType == "test" ? "testnet" :
-                    networkType == "main" ? "mainnet" :
-                    throw new Exception($"Unrecognized network type '{networkType}'");
-                
-                return Network.ByName(name);
+                options.Logs = logs => logs.UseEmptyLogging();
+
+                options.Swagger = swagger =>
+                {
+                    swagger.DescribeAllEnumsAsStrings();
+                    swagger.DescribeStringEnumsInCamelCase();
+                };
+
+                options.SwaggerOptions = new LykkeSwaggerOptions
+                {
+                    ApiTitle = "Decred.SignService"
+                };
             });
 
-            services.AddTransient<ISigningWallet, SigningWallet>();
-            services.AddTransient<ISecurityService, SecurityService>();
-            services.AddTransient<ISigningService, SigningService>();
-            services.AddTransient<IKeyService, KeyService>();
+            return service;
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseMvc();
-            
+            app.UseLykkeConfiguration();
         }
     }
 }
