@@ -1,4 +1,5 @@
-﻿using Lykke.Service.Decred.SignService.Core.Services;
+﻿using Lykke.Service.BlockchainApi.Contract.Wallets;
+using Lykke.Service.Decred.SignService.Core.Services;
 using NDecred.Common;
 
 namespace Lykke.Service.Decred.SignService.Services
@@ -16,13 +17,13 @@ namespace Lykke.Service.Decred.SignService.Services
             _securityService = securityService;
             _network = network;
         }
-        
-        public WalletCreationResponse Create()
+
+        public WalletResponse Create()
         {
             var privateKey = _securityService.NewPrivateKey();
             var publicKey = _securityService.GetPublicKey(privateKey, true);
-            
-            return new WalletCreationResponse
+
+            return new WalletResponse
             {
                 PrivateKey = GetWif(privateKey),
                 PublicAddress = GetPublicAddress(publicKey)

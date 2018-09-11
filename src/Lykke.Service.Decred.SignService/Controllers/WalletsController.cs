@@ -1,9 +1,10 @@
-﻿using Lykke.Service.Decred.SignService.Core.Services;
+﻿using Lykke.Service.BlockchainApi.Contract.Wallets;
+using Lykke.Service.Decred.SignService.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lykke.Service.Decred.SignService.Controllers
 {
-    
+
     [Route("api/[controller]")]
     public class WalletsController : Controller
     {
@@ -13,9 +14,9 @@ namespace Lykke.Service.Decred.SignService.Controllers
         {
             _keyService = keyService;
         }
-        
+
         [HttpPost]
-        public WalletCreationResponse CreateWallet()
+        public WalletResponse CreateWallet()
         {
             return _keyService.Create();
         }

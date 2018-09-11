@@ -6,10 +6,10 @@
     <Version>1.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Domain\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Lykke.Common" Version="7.0.3" />
+    <PackageReference Include="Lykke.Service.BlockchainApi.Client" Version="17.5.0" />
   </ItemGroup>
 </Project>
