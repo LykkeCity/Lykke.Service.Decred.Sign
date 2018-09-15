@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NDecred.Common;
 using Xunit;
-using SignedTransactionResponse = Lykke.Service.Decred.SignService.Models.SignedTransactionResponse;
 
 namespace Lykke.Service.Decred.SignService.Services.Tests
 {

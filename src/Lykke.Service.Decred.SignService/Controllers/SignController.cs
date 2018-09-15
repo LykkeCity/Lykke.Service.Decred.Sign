@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Net;
 using Lykke.Common.Api.Contract.Responses;
 using Lykke.Service.BlockchainApi.Contract.Transactions;
 using Lykke.Service.Decred.SignService.Services;
 using Microsoft.AspNetCore.Mvc;
 using NDecred.Common;
-using SignedTransactionResponse = Lykke.Service.Decred.SignService.Models.SignedTransactionResponse;
 
 namespace Lykke.Service.Decred.SignService.Controllers
 {
