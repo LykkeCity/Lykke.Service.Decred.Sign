@@ -20,7 +20,16 @@ namespace Lykke.Service.Decred.SignService.Services
 
         public WalletResponse Create()
         {
-            var privateKey = _securityService.NewPrivateKey();
+            byte[] privateKey;
+
+            do
+            {
+                // Sometimes security service generates private key, with length != 32
+                // So, we repeat private key generation, until it meet length requirements
+                privateKey = _securityService.NewPrivateKey();
+                
+            } while (privateKey.Length != 32);
+            
             var publicKey = _securityService.GetPublicKey(privateKey, true);
 
             return new WalletResponse
